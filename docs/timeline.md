@@ -11,59 +11,34 @@ Template Instructions:
 
 :::timeline
 
-    :::item{date='{{CURRENT_YEAR}}' title='{{CURRENT_POSITION}}'}
-    {{CURRENT_ROLE_DESCRIPTION}}
+    :::item{date='{{CURRENT_YEAR}}' title='{{YOUR_CURRENT_POSITION}}'}
+    Currently working at {{YOUR_CURRENT_COMPANY}} as a {{YOUR_PRIMARY_ROLE}}.
     
-    **Key Achievements:**
-    - {{CURRENT_ACHIEVEMENT_1}}
-    - {{CURRENT_ACHIEVEMENT_2}}
-    - {{CURRENT_ACHIEVEMENT_3}}
+    {{YOUR_PROFESSIONAL_SUMMARY}}
     
-    **Technologies:** {{CURRENT_TECH_STACK}}
+    **Technologies:** {{YOUR_PROGRAMMING_LANGUAGES}}, {{YOUR_FRAMEWORKS}}, {{YOUR_DATABASES}}, {{YOUR_CLOUD_SKILLS}}
     :::
 
-    :::item{date='{{PREVIOUS_YEAR_1}}' title='{{PREVIOUS_POSITION_1}}'}
-    {{PREVIOUS_ROLE_DESCRIPTION_1}}
+    :::item{date='Previous Years' title='Professional Growth'}
+    {{YOUR_YEARS_EXPERIENCE}}+ years of experience in {{YOUR_PRIMARY_ROLE}} and {{YOUR_SECONDARY_ROLE}}.
     
-    **Key Achievements:**
-    - {{PREVIOUS_ACHIEVEMENT_1_1}}
-    - {{PREVIOUS_ACHIEVEMENT_1_2}}
-    - {{PREVIOUS_ACHIEVEMENT_1_3}}
+    **Key Focus Areas:**
+    - {{YOUR_CODING_INTERESTS}}
+    - {{YOUR_BLOG_TOPICS}}
+    - {{YOUR_DISCUSSION_TOPICS}}
     
-    **Technologies:** {{PREVIOUS_TECH_STACK_1}}
+    **Core Technologies:** {{YOUR_DEVELOPMENT_TOOLS}}
     :::
 
-    :::item{date='{{PREVIOUS_YEAR_2}}' title='{{PREVIOUS_POSITION_2}}'}
-    {{PREVIOUS_ROLE_DESCRIPTION_2}}
+    :::item{date='Career Foundation' title='Early Career'}
+    Started my journey in technology with a passion for {{YOUR_CODING_INTERESTS}}.
     
-    **Key Achievements:**
-    - {{PREVIOUS_ACHIEVEMENT_2_1}}
-    - {{PREVIOUS_ACHIEVEMENT_2_2}}
-    - {{PREVIOUS_ACHIEVEMENT_2_3}}
+    **Learning Journey:**
+    - Mastered {{YOUR_PROGRAMMING_LANGUAGES}}
+    - Specialized in {{YOUR_FRAMEWORKS}}
+    - Expanded into {{YOUR_CLOUD_SKILLS}}
     
-    **Technologies:** {{PREVIOUS_TECH_STACK_2}}
-    :::
-
-    :::item{date='{{EDUCATION_YEAR}}' title='{{DEGREE_TITLE}}'}
-    **{{UNIVERSITY_NAME}}**
-    
-    {{EDUCATION_DESCRIPTION}}
-    
-    **Highlights:**
-    - {{EDUCATION_HIGHLIGHT_1}}
-    - {{EDUCATION_HIGHLIGHT_2}}
-    - {{EDUCATION_HIGHLIGHT_3}}
-    :::
-
-    :::item{date='{{CAREER_START_YEAR}}' title='{{FIRST_POSITION}}'}
-    {{FIRST_ROLE_DESCRIPTION}}
-    
-    **Learning Focus:**
-    - {{FIRST_JOB_LEARNING_1}}
-    - {{FIRST_JOB_LEARNING_2}}
-    - {{FIRST_JOB_LEARNING_3}}
-    
-    **Technologies:** {{FIRST_JOB_TECH_STACK}}
+    **Personal Interests:** {{YOUR_HOBBIES}}
     :::
 
 :::
@@ -72,28 +47,28 @@ Template Instructions:
 
 ## Career Highlights
 
-### 🏆 Major Achievements
+### 🏆 Professional Excellence
 
-- **{{MAJOR_ACHIEVEMENT_1}}** ({{ACHIEVEMENT_YEAR_1}})  
-  {{ACHIEVEMENT_DESCRIPTION_1}}
+- **{{YOUR_CURRENT_POSITION}}** at {{YOUR_CURRENT_COMPANY}}  
+  {{YOUR_PROFESSIONAL_SUMMARY}}
 
-- **{{MAJOR_ACHIEVEMENT_2}}** ({{ACHIEVEMENT_YEAR_2}})  
-  {{ACHIEVEMENT_DESCRIPTION_2}}
+- **{{YOUR_YEARS_EXPERIENCE}}+ Years Experience**  
+  Specializing in {{YOUR_PRIMARY_ROLE}} and {{YOUR_SECONDARY_ROLE}}
 
-- **{{MAJOR_ACHIEVEMENT_3}}** ({{ACHIEVEMENT_YEAR_3}})  
-  {{ACHIEVEMENT_DESCRIPTION_3}}
+- **Technical Expertise**  
+  Proficient in {{YOUR_PROGRAMMING_LANGUAGES}}, {{YOUR_FRAMEWORKS}}, and {{YOUR_CLOUD_SKILLS}}
 
 ### 📚 Continuous Learning
 
-- **{{LEARNING_MILESTONE_1}}** - {{LEARNING_DESCRIPTION_1}}
-- **{{LEARNING_MILESTONE_2}}** - {{LEARNING_DESCRIPTION_2}}
-- **{{LEARNING_MILESTONE_3}}** - {{LEARNING_DESCRIPTION_3}}
+- **Technology Focus** - {{YOUR_CODING_INTERESTS}}
+- **Knowledge Sharing** - {{YOUR_BLOG_TOPICS}} and {{YOUR_DISCUSSION_TOPICS}}
+- **Development Tools** - {{YOUR_DEVELOPMENT_TOOLS}}
 
-### 🌟 Leadership & Mentoring
+### 🌟 Personal Growth
 
-- **{{LEADERSHIP_EXPERIENCE_1}}** - {{LEADERSHIP_DESCRIPTION_1}}
-- **{{LEADERSHIP_EXPERIENCE_2}}** - {{LEADERSHIP_DESCRIPTION_2}}
-- **{{LEADERSHIP_EXPERIENCE_3}}** - {{LEADERSHIP_DESCRIPTION_3}}
+- **Professional Development** - {{YOUR_PRIMARY_ROLE}} expertise and leadership
+- **Technical Skills** - Mastery of {{YOUR_FRAMEWORKS}} and {{YOUR_DATABASES}}
+- **Life Balance** - Enjoying {{YOUR_HOBBIES}} outside of work
 
 ---
 

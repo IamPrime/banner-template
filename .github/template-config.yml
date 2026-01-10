@@ -5,10 +5,8 @@
 exclude:
   - "*.md"  # Exclude template-specific markdown files
   - ".github/workflows/template-*.yml"  # Exclude template-specific workflows
-  - "setup_template.py"  # Users will run this after cloning
   - "docs/assets/professional/*"  # Don't copy personal assets
   - "site/"  # Don't copy built site
-  - "*.template.*"  # Exclude template files (users will generate these)
 
 # Default branch name for new repositories
 default_branch: main

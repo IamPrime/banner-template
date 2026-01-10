@@ -16,7 +16,7 @@ assignees: ''
 
 **Affected Documentation**
 Which documentation files are affected?
-- [ ] TEMPLATE_README.md
+- [ ] README.md
 - [ ] THEME_README.md
 - [ ] Setup instructions
 - [ ] Template files comments

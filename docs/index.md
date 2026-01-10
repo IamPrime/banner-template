@@ -18,7 +18,7 @@ Template Instructions:
 
 # Hi <span class="pulse">👋</span>, I am {{YOUR_FIRST_NAME}}
 
-A **{{YOUR_PRIMARY_ROLE}}** 💻 | **{{YOUR_SECONDARY_ROLE}}** 🌐 | **{{YOUR_EDUCATION_BACKGROUND}}** 🎓 | **{{YOUR_HOBBY_1}}** 🎙️ | **{{YOUR_INTEREST}}** 🚀
+A **{{YOUR_PRIMARY_ROLE}}** 💻 | **{{YOUR_SECONDARY_ROLE}}** 🌐
 
 <!-- 
 Customize this section with your own roles, interests, and emoji combinations.
@@ -31,29 +31,21 @@ Examples:
 
 ### I enjoy:
 
-- 💻 {{YOUR_CODING_INTERESTS}}  <!-- e.g., "Coding (Python, JavaScript, React)" -->
-- 🛠️ {{YOUR_BUILDING_INTERESTS}}  <!-- e.g., "Building web applications and APIs" -->
-- 📚 {{YOUR_LEARNING_ACTIVITIES}}  <!-- e.g., "Learning new technologies and frameworks" -->
-- 🧗 {{YOUR_ADVENTURE_ACTIVITIES}}  <!-- e.g., "Rock climbing and outdoor adventures" -->
-- 💪 {{YOUR_FITNESS_ACTIVITIES}}  <!-- e.g., "Strength training and yoga" -->
-- 🍳 {{YOUR_CULINARY_INTERESTS}}  <!-- e.g., "Experimenting with international cuisines" -->
-- 📖 Reading ({{YOUR_READING_PREFERENCES}})  <!-- e.g., "sci-fi, tech blogs, and biographies" -->
-- 🎮 Gaming
-    - Platform preferences: {{YOUR_GAMING_PLATFORMS}}  <!-- e.g., "PC, Nintendo Switch, mobile" -->
-    - Favorite titles: {{YOUR_FAVORITE_GAMES}}  <!-- e.g., "The Legend of Zelda, Cyberpunk 2077, Among Us" -->
-- 🎵 Music
-    - 🎧 {{YOUR_MUSIC_PREFERENCES}}  <!-- e.g., "Electronic, jazz, and indie rock" -->
-    - 🎤 {{YOUR_MUSIC_ACTIVITIES}}  <!-- e.g., "Playing guitar and occasional karaoke" -->
-- 👥 {{YOUR_SOCIAL_ACTIVITIES}}  <!-- e.g., "Community involvement and networking" -->
-- 🚲 {{YOUR_OTHER_HOBBIES}}  <!-- e.g., "Cycling and urban exploration" -->
+- 💻 {{YOUR_CODING_INTERESTS}}
+- 🛠️ Building amazing applications and solutions
+- 📚 Learning {{YOUR_PROGRAMMING_LANGUAGES}} and {{YOUR_FRAMEWORKS}}
+- 🎮 Gaming and technology exploration
+- 🎵 Music and creative hobbies
+- 👥 Community involvement and networking
+- 🌿 {{YOUR_HOBBIES}}
 
 ### On this site you can:
 
 - 📄 Find my resume and professional background
-- 📝 Read my blog posts about {{YOUR_BLOG_TOPICS}}  <!-- e.g., "web development, tech trends, and personal growth" -->
-- 💭 Learn about my thoughts on {{YOUR_OPINION_TOPICS}}  <!-- e.g., "technology, sustainability, and innovation" -->
+- 📝 Read my blog posts about {{YOUR_BLOG_TOPICS}}
+- 💭 Learn about my thoughts on {{YOUR_DISCUSSION_TOPICS}}
 - 🔗 Connect with me on social platforms
-- 📬 Get in touch for {{YOUR_CONTACT_PURPOSES}}  <!-- e.g., "collaboration, consulting, or just to say hi" -->
+- 📬 Get in touch for collaboration and opportunities
 
 ---
 
@@ -65,22 +57,22 @@ Examples:
 
 <div class="stat-item" style="text-align: center; padding: 1rem; border: 1px solid var(--md-default-fg-color--lighter); border-radius: 8px;">
 <strong>{{YOUR_YEARS_EXPERIENCE}}+ Years</strong><br>
-{{YOUR_EXPERIENCE_TYPE}}  <!-- e.g., "Professional Experience" -->
+Professional Experience
 </div>
 
 <div class="stat-item" style="text-align: center; padding: 1rem; border: 1px solid var(--md-default-fg-color--lighter); border-radius: 8px;">
-<strong>{{YOUR_PROJECTS_COUNT}}+ Projects</strong><br>
-{{YOUR_PROJECTS_TYPE}}  <!-- e.g., "Completed Successfully" -->
+<strong>{{YOUR_PRIMARY_ROLE}}</strong><br>
+Current Role
 </div>
 
 <div class="stat-item" style="text-align: center; padding: 1rem; border: 1px solid var(--md-default-fg-color--lighter); border-radius: 8px;">
-<strong>{{YOUR_SKILLS_COUNT}}+ Technologies</strong><br>
-{{YOUR_SKILLS_DESCRIPTION}}  <!-- e.g., "Languages & Frameworks" -->
+<strong>Multiple Technologies</strong><br>
+Languages & Frameworks
 </div>
 
 <div class="stat-item" style="text-align: center; padding: 1rem; border: 1px solid var(--md-default-fg-color--lighter); border-radius: 8px;">
-<strong>{{YOUR_ACHIEVEMENT_COUNT}}+ {{ACHIEVEMENT_TYPE}}</strong><br>
-{{YOUR_ACHIEVEMENT_DESCRIPTION}}  <!-- e.g., "Certifications Earned" -->
+<strong>Always Learning</strong><br>
+Continuous Growth
 </div>
 
 </div>
@@ -99,10 +91,10 @@ Examples:
 - **Tools**: {{YOUR_DEVELOPMENT_TOOLS}}  <!-- e.g., "Git, VS Code, Figma, Postman" -->
 
 ### 🎯 Specializations
-- {{YOUR_SPECIALIZATION_1}}  <!-- e.g., "Full-stack web development" -->
-- {{YOUR_SPECIALIZATION_2}}  <!-- e.g., "API design and microservices" -->
-- {{YOUR_SPECIALIZATION_3}}  <!-- e.g., "Performance optimization" -->
-- {{YOUR_SPECIALIZATION_4}}  <!-- e.g., "User experience design" -->
+- {{YOUR_PRIMARY_ROLE}}
+- {{YOUR_SECONDARY_ROLE}}
+- {{YOUR_FRAMEWORKS}} development
+- {{YOUR_CLOUD_SKILLS}} architecture
 
 ---
 
@@ -111,15 +103,15 @@ Examples:
 I'm always excited to meet new people and discuss {{YOUR_DISCUSSION_TOPICS}}. <!-- e.g., "technology, potential collaborations, or interesting projects" -->
 
 ### 🌟 Currently
-- {{YOUR_CURRENT_STATUS}}  <!-- e.g., "Working as a Senior Developer at TechCorp" -->
-- {{YOUR_CURRENT_LEARNING}}  <!-- e.g., "Learning machine learning and AI" -->
-- {{YOUR_CURRENT_PROJECTS}}  <!-- e.g., "Building an open-source project management tool" -->
+- Working as {{YOUR_CURRENT_POSITION}} at {{YOUR_CURRENT_COMPANY}}
+- Expanding skills in {{YOUR_PROGRAMMING_LANGUAGES}} and {{YOUR_FRAMEWORKS}}
+- Building projects with {{YOUR_CLOUD_SKILLS}}
 
 ### 💡 Open To
-- {{YOUR_OPENNESS_1}}  <!-- e.g., "Freelance projects and consulting" -->
-- {{YOUR_OPENNESS_2}}  <!-- e.g., "Speaking opportunities at conferences" -->
-- {{YOUR_OPENNESS_3}}  <!-- e.g., "Mentoring aspiring developers" -->
-- {{YOUR_OPENNESS_4}}  <!-- e.g., "Collaboration on innovative ideas" -->
+- Freelance projects and consulting
+- Speaking opportunities at conferences
+- Mentoring aspiring developers
+- Collaboration on innovative ideas
 
 ---
 
