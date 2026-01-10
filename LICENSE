@@ -1,8 +1,8 @@
-# MkDocs Material Portfolio Template - License
+# Banner Template - License
 
 MIT License
 
-Copyright (c) 2024 [Your Name]
+Copyright (c) 2026 IamPrime
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,12 @@ SOFTWARE.
 ## Third-Party Licenses
 
 This template includes and builds upon the following open-source projects:
+
+### Banner Template
+- License: MIT License
+- Original Author: IamPrime
+- Repository: https://github.com/IamPrime/banner-template
+- This template is based on the [Banner](https://banner.primusckabuo.dev/) theme system
 
 ### MkDocs
 - License: BSD-2-Clause

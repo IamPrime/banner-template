@@ -132,24 +132,13 @@ extra:
         name: Analytics
         checked: true
 
-  # Google Analytics (optional)
+  # Google Analytics (optional - replace with your tracking ID)
   # analytics:
   #   provider: google
-  #   property: {{GA_TRACKING_ID}}    # e.g., "G-XXXXXXXXXX"
+  #   property: G-XXXXXXXXXX    # Replace with your Google Analytics tracking ID
 
 # Site information for SEO
 site_description: {{SITE_DESCRIPTION}}  # e.g., "Personal portfolio and blog of John Doe, Software Engineer"
 site_author: {{YOUR_NAME}}
 repo_url: {{REPO_URL}}                   # e.g., "https://github.com/yourusername/your-repo"
 repo_name: {{REPO_NAME}}                 # e.g., "yourusername/your-repo"
-
-# Additional theme configuration
-theme:
-  name: material
-  # ... (theme config continues from above)
-  custom_dir: docs/overrides
-  # Custom color scheme (optional)
-  # palette:
-  #   - scheme: default
-  #     primary: {{PRIMARY_COLOR}}      # e.g., "deep purple"
-  #     accent: {{ACCENT_COLOR}}        # e.g., "indigo"

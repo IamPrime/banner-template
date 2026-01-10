@@ -1,6 +1,6 @@
-# 🌟 MkDocs Material Portfolio & Blog Template
+# 🌟 Banner - MkDocs Material Portfolio & Blog Template
 
-A sophisticated, feature-rich MkDocs Material template for creating stunning portfolio and blog websites. This template includes an advanced hybrid weather/seasonal theme system, interactive widgets, and modern design patterns.
+A comprehensive template structure for the Banner project with advanced weather/seasonal themes, blog functionality, interactive timeline, and modern design patterns.
 
 ## 🎯 Features
 
@@ -34,8 +34,8 @@ A sophisticated, feature-rich MkDocs Material template for creating stunning por
 ### 1. Clone & Setup
 ```bash
 # Clone the template repository
-git clone <your-template-repo-url>
-cd your-site-name
+git clone https://github.com/IamPrime/banner-template
+cd <your-site-name>
 
 # Install dependencies
 pip install -r requirements.txt
@@ -70,7 +70,6 @@ Edit the following files in the `docs/` directory:
 Replace placeholder assets in `docs/assets/`:
 - `professional/` - Professional photos and videos
 - `favicon/` - Favicon files
-- `hobbies/` - Personal hobby images
 
 ### 4. Development
 ```bash
@@ -99,8 +98,7 @@ your-site/
 │   ├── timeline.md               # Professional timeline
 │   ├── assets/
 │   │   ├── professional/         # Your professional photos
-│   │   ├── favicon/              # Favicon files
-│   │   └── hobbies/              # Personal images
+│   │   └── favicon/              # Favicon files
 │   ├── blog/
 │   │   ├── .authors.yml          # Blog authors info
 │   │   ├── index.md              # Blog homepage
@@ -163,11 +161,11 @@ Add your professional milestones using the timeline syntax:
 ```markdown
 :::timeline
 
-    :::item{date='2024' title='Current Position'}
+    :::item{date='2026' title='Current Position'}
     Description of your current role and achievements.
     :::
 
-    :::item{date='2023' title='Previous Role'}
+    :::item{date='2025' title='Previous Role'}
     Description of previous position.
     :::
 
@@ -180,7 +178,7 @@ Add your professional milestones using the timeline syntax:
 3. Use frontmatter for post metadata:
 ```yaml
 ---
-date: 2024-01-01
+date: 2026-01-01
 authors: [your-handle]
 categories: [Technology, Web Development]
 ---
@@ -205,8 +203,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - run: pip install -r requirements.txt
@@ -285,6 +283,7 @@ This template is licensed under MIT License. See LICENSE file for details.
 - Built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 - Weather data from [Open-Meteo API](https://open-meteo.com/)
 - Icons from [FontAwesome](https://fontawesome.com/)
+- Designed by [IamPrime](https://www.github.com/IamPrime)
 
 ---
 

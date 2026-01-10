@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MkDocs Material Portfolio Template Setup Script
+Banner - MkDocs Material Portfolio & Blog Template Setup Script
 
 This script helps you quickly customize the template with your personal information.
 It will replace all template placeholders with your actual details.
@@ -20,15 +20,15 @@ class TemplateSetup:
         self.base_path = Path(__file__).parent
         self.template_vars = {}
         self.files_to_process = [
-            'mkdocs.template.yml',
-            'docs/index.template.md',
-            'docs/about.template.md',
-            'docs/timeline.template.md',
-            'docs/blog/.authors.template.yml'
+            'mkdocs.yml',
+            'docs/index.md',
+            'docs/about.md',
+            'docs/timeline.md',
+            'docs/blog/.authors.yml'
         ]
         
     def welcome_message(self):
-        print("🌟 Welcome to MkDocs Material Portfolio Template Setup!")
+        print("🌟 Welcome to Banner Portfolio Template Setup!")
         print("=" * 60)
         print("This script will help you customize the template with your information.")
         print("You can skip any field by pressing Enter (you can edit manually later).")
@@ -59,6 +59,7 @@ class TemplateSetup:
         self.template_vars['YOUR_CURRENT_COMPANY'] = input("Current company: ").strip()
         self.template_vars['YOUR_CURRENT_POSITION'] = input("Current position: ").strip() or self.template_vars['YOUR_PRIMARY_ROLE']
         self.template_vars['YOUR_YEARS_EXPERIENCE'] = input("Years of experience: ").strip() or "5"
+        self.template_vars['YOUR_PROFESSIONAL_SUMMARY'] = input("Brief professional summary (1-2 sentences): ").strip()
         print()
 
     def collect_technical_info(self):
@@ -131,6 +132,9 @@ class TemplateSetup:
         # Set avatar path for blog
         self.template_vars['YOUR_AVATAR_PATH'] = self.template_vars.get('YOUR_IMAGE_FILE', 'assets/professional/avatar.jpg')
         
+        # Set URL for blog authors (use personal website or LinkedIn)
+        self.template_vars['YOUR_URL'] = self.template_vars.get('YOUR_WEBSITE_URL') or self.template_vars.get('LINKEDIN_URL', '')
+        
         # Generate description for blog authors
         role = self.template_vars.get('YOUR_PROFESSIONAL_TITLE', 'Developer')
         company = self.template_vars.get('YOUR_CURRENT_COMPANY', '')
@@ -150,12 +154,18 @@ class TemplateSetup:
         """Process all template files and create final versions"""
         print("🔄 Processing template files...")
         
-        for template_file in self.files_to_process:
-            template_path = self.base_path / template_file
+        for file_path in self.files_to_process:
+            template_path = self.base_path / file_path
             
             if not template_path.exists():
-                print(f"⚠️  Template file not found: {template_file}")
+                print(f"⚠️  File not found: {file_path}")
                 continue
+            
+            # Create backup of original file
+            backup_path = template_path.with_suffix(template_path.suffix + '.backup')
+            if not backup_path.exists():
+                shutil.copy2(template_path, backup_path)
+                print(f"📁 Created backup: {file_path}.backup")
                 
             # Read template content
             with open(template_path, 'r', encoding='utf-8') as f:
@@ -164,52 +174,40 @@ class TemplateSetup:
             # Replace template variables
             processed_content = self.replace_template_vars(content)
             
-            # Determine output file name (remove .template part)
-            output_file = template_file.replace('.template', '')
-            output_path = self.base_path / output_file
-            
-            # Create output directory if it doesn't exist
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            
-            # Write processed content
-            with open(output_path, 'w', encoding='utf-8') as f:
+            # Write processed content back to original file
+            with open(template_path, 'w', encoding='utf-8') as f:
                 f.write(processed_content)
             
-            print(f"✅ Created: {output_file}")
-        
-        # Special handling for mkdocs.yml
-        mkdocs_template = self.base_path / 'mkdocs.template.yml'
-        mkdocs_output = self.base_path / 'mkdocs.yml'
-        
-        if mkdocs_template.exists() and not mkdocs_output.exists():
-            print("✅ Created: mkdocs.yml (from template)")
-        elif mkdocs_output.exists():
-            backup_path = self.base_path / 'mkdocs.yml.backup'
-            shutil.copy2(mkdocs_output, backup_path)
-            print(f"✅ Backed up existing mkdocs.yml to mkdocs.yml.backup")
+            print(f"✅ Updated: {file_path}")
 
     def create_requirements_file(self):
         """Create requirements.txt if it doesn't exist"""
         req_file = self.base_path / 'requirements.txt'
-        if not req_file.exists():
-            requirements = [
-                "mkdocs>=1.5.0",
-                "mkdocs-material>=9.4.0",
-                "mkdocs-open-in-new-tab>=1.0.3",
-                "neoteroi-mkdocs>=1.0.0",
-                "pymdown-extensions>=10.3",
-            ]
+        if req_file.exists():
+            print("✅ requirements.txt already exists")
+            return
             
-            with open(req_file, 'w') as f:
-                f.write('\n'.join(requirements) + '\n')
-            
-            print("✅ Created: requirements.txt")
+        requirements = [
+            "mkdocs>=1.5.0",
+            "mkdocs-material>=9.4.0",
+            "mkdocs-open-in-new-tab>=1.0.3",
+            "neoteroi-mkdocs>=1.0.0",
+            "pymdown-extensions>=10.3",
+        ]
+        
+        with open(req_file, 'w') as f:
+            f.write('\n'.join(requirements) + '\n')
+        
+        print("✅ Created: requirements.txt")
 
     def final_instructions(self):
         """Display final setup instructions"""
         print()
         print("🎉 SETUP COMPLETE!")
         print("=" * 60)
+        print("✅ Your template files have been updated with your information.")
+        print("📁 Original files backed up with .backup extension.")
+        print()
         print("Next steps:")
         print()
         print("1. Install dependencies:")
@@ -218,7 +216,7 @@ class TemplateSetup:
         print("2. Add your assets:")
         print("   - Place your logo/avatar in docs/assets/professional/")
         print("   - Add your favicon to docs/assets/favicon/")
-        print("   - Update any remaining placeholders in the generated files")
+        print("   - Update any remaining placeholders in the updated files")
         print()
         print("3. Start development server:")
         print("   mkdocs serve")
@@ -228,10 +226,11 @@ class TemplateSetup:
         print()
         print("5. Deploy to your preferred platform (Netlify, GitHub Pages, etc.)")
         print()
-        print("💡 Tip: Check the generated files for any remaining {{PLACEHOLDER}} values")
+        print("💡 Tip: Check the updated files for any remaining {{PLACEHOLDER}} values")
         print("    that you may want to customize further.")
         print()
-        print("📚 For more help, see TEMPLATE_README.md and THEME_README.md")
+        print("🔄 To revert changes: restore from the .backup files")
+        print("📚 For more help, see THEME_README.md")
         print("=" * 60)
 
     def run(self):

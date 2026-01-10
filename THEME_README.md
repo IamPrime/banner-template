@@ -1,6 +1,6 @@
 # 🎨 Hybrid Seasonal/Weather Theme System
 
-A dynamic theming system for MkDocs Material that intelligently switches between weather-based and seasonal themes while preserving your site's design integrity. Features a user-controlled toggle for enabling/disabling seasonal effects.
+A dynamic theming system that intelligently switches between weather-based and seasonal themes while preserving your site's design integrity. Features a user-controlled toggle for enabling/disabling seasonal effects.
 
 ## 🌟 Overview
 
@@ -59,7 +59,6 @@ docs/
 ├── stylesheets/
 │   ├── theme-styles.css          # Visual effects and animations
 │   └── extra.css                 # Existing styles (preserved)
-└── theme-test.md                 # Demo page for testing themes
 
 mkdocs.yml                        # Updated configuration
 ```
@@ -313,8 +312,8 @@ resetThemeToAuto()
 
 ## 📜 License
 
-This theme system is part of the personal portfolio project and follows the same licensing as the main project.
+This theme system is part of the Corolla project and follows the same licensing as the Banner project.
 
 ---
 
-*Created with ❤️ for enhanced user experience while maintaining design integrity.*
+*Created with ❤️ by [IamPrime](https://github.com/IamPrime) for enhanced user experience while maintaining design integrity.*
