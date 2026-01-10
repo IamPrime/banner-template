@@ -1,0 +1,155 @@
+# Template Configuration - mkdocs.yml
+# This is a template version of mkdocs.yml with placeholders for easy customization
+# Replace all {{PLACEHOLDER}} values with your actual information
+
+site_name: {{SITE_NAME}}  # e.g., "John Doe Portfolio"
+site_url: {{SITE_URL}}    # e.g., "https://johndoe.dev" or "https://username.github.io/repo-name"
+
+theme:
+  name: material
+  favicon: {{YOUR_FAVICON_PATH}}  # e.g., "assets/favicon/favicon.ico"
+  logo: {{YOUR_LOGO_PATH}}        # e.g., "assets/professional/logo.jpg"
+  icon:
+    code: fontawesome-solid-code
+    heart: octicons/heart-fill-24:{ .heart }
+  custom_dir: docs/overrides
+  features:
+    - announce.dismiss
+    - search.share
+    - navigation.tabs
+    - navigation.sections
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Timeline: timeline.md
+  # Customize your navigation - add/remove sections as needed
+  # - Portfolio: portfolio.md
+  # - Services: services.md
+  # - Contact: contact.md
+  - Blog:
+      - blog/index.md
+      # Blog posts will be auto-discovered
+
+plugins:
+  - search
+  - offline
+  - open-in-new-tab
+  - macros:
+      # Add your custom macros here
+  - blog:
+      authors_file: docs/blog/.authors.yml
+      authors: true
+      blog_dir: blog
+      blog_toc: true
+  # Optional: uncomment and configure these plugins
+  # - git-authors
+  # - privacy   # Note: may have CORS issues with some integrations
+
+# Custom CSS files
+extra_css:
+  - stylesheets/extra.css
+  - https://unpkg.com/leaflet@1.7.1/dist/leaflet.css
+  - stylesheets/neoteroi.css
+  - stylesheets/timeline.css
+  - stylesheets/cards.css
+  - stylesheets/theme-styles.css
+  # Optional: Bootstrap CSS
+  # - https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
+
+# Custom JavaScript files
+extra_javascript:
+  - https://unpkg.com/leaflet@1.7.1/dist/leaflet.js
+  - overrides/theme-manager.js
+  - overrides/back-to-top.js
+  # Optional: Bootstrap JS
+  # - https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js
+
+# Markdown extensions
+markdown_extensions: 
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - neoteroi.timeline
+  - neoteroi.cards
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+# Copyright notice
+copyright: All rights reserved &copy; {{CURRENT_YEAR}} {{YOUR_NAME}} <br/> <a href="#__consent">Change Privacy Settings</a>
+
+# Extra configuration
+extra:
+  # Social media links
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: {{LINKEDIN_URL}}        # e.g., "https://www.linkedin.com/in/your-profile/"
+    - icon: fontawesome/brands/github
+      link: {{GITHUB_URL}}          # e.g., "https://github.com/yourusername"
+    # Add more social links as needed:
+    # - icon: fontawesome/brands/twitter
+    #   link: {{TWITTER_URL}}
+    # - icon: fontawesome/brands/youtube
+    #   link: {{YOUTUBE_URL}}
+    # - icon: fontawesome/brands/instagram
+    #   link: {{INSTAGRAM_URL}}
+
+  # Cookie consent (GDPR compliance)
+  consent:
+    title: Cookie Consent
+    description: >
+      This website uses cookies to ensure you get the best experience, as well as 
+      to measure how you use the site. By continuing to browse the site, you are 
+      agreeing to our use of cookies.
+    actions:
+      - accept
+      - reject
+      - manage
+    cookies:
+      analytics:
+        name: Analytics
+        checked: true
+
+  # Google Analytics (optional)
+  # analytics:
+  #   provider: google
+  #   property: {{GA_TRACKING_ID}}    # e.g., "G-XXXXXXXXXX"
+
+# Site information for SEO
+site_description: {{SITE_DESCRIPTION}}  # e.g., "Personal portfolio and blog of John Doe, Software Engineer"
+site_author: {{YOUR_NAME}}
+repo_url: {{REPO_URL}}                   # e.g., "https://github.com/yourusername/your-repo"
+repo_name: {{REPO_NAME}}                 # e.g., "yourusername/your-repo"
+
+# Additional theme configuration
+theme:
+  name: material
+  # ... (theme config continues from above)
+  custom_dir: docs/overrides
+  # Custom color scheme (optional)
+  # palette:
+  #   - scheme: default
+  #     primary: {{PRIMARY_COLOR}}      # e.g., "deep purple"
+  #     accent: {{ACCENT_COLOR}}        # e.g., "indigo"

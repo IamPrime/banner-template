@@ -1,0 +1,43 @@
+# Configuration for GitHub repository template
+# This file is used when someone creates a new repository from this template
+
+# Files and directories to exclude when creating a repository from this template
+exclude:
+  - "*.md"  # Exclude template-specific markdown files
+  - ".github/workflows/template-*.yml"  # Exclude template-specific workflows
+  - "setup_template.py"  # Users will run this after cloning
+  - "docs/assets/professional/*"  # Don't copy personal assets
+  - "site/"  # Don't copy built site
+  - "*.template.*"  # Exclude template files (users will generate these)
+
+# Default branch name for new repositories
+default_branch: main
+
+# Repository settings that will be applied to new repositories
+settings:
+  # Enable/disable features
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  has_discussions: true
+  
+  # Default settings
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: true
+  delete_branch_on_merge: true
+  
+  # Security settings
+  vulnerability_alerts: true
+  automated_security_fixes: true
+  
+  # Repository topics (will be suggested)
+  topics:
+    - mkdocs
+    - portfolio
+    - blog
+    - material-design
+    - template
+    - personal-website
+    - documentation

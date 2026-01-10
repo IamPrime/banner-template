@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+<title>IamPrime</title>
+{% endblock %}
+
+{% block extrahead %}
+{{ super() }}
+<!-- Permissions Policy for geolocation - allow self -->
+<meta http-equiv="Permissions-Policy" content="geolocation=(self)">
+
+<!-- Explicit favicon declarations for better browser compatibility -->
+<link rel="icon" type="image/x-icon" href="{{ 'assets/favicon/favicon.ico' | url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/favicon/favicon-32x32.png' | url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/favicon/favicon-16x16.png' | url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/favicon/apple-touch-icon.png' | url }}">
+<link rel="manifest" href="{{ 'assets/favicon/site.webmanifest' | url }}">
+
+<!-- Leaflet.js -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Flags-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css" rel="stylesheet">
+
+<!-- Consent-based Analytics Loader -->
+<script>
+// Wait for consent system to be available, then conditionally load analytics
+(function() {
+  var analyticsLoaded = false; // Prevent double loading
+  
+  // Check if user explicitly rejected (persistent across page loads)
+  function getUserExplicitlyRejected() {
+    try {
+      return sessionStorage.getItem('userExplicitlyRejected') === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+  
+  function setUserExplicitlyRejected(rejected) {
+    try {
+      sessionStorage.setItem('userExplicitlyRejected', rejected.toString());
+    } catch (e) {
+      // Fallback if sessionStorage not available
+    }
+  }
+  
+  function loadAnalyticsIfConsented() {
+    if (analyticsLoaded) return; // Prevent multiple loads
+    
+    try {
+      // Check if user has given consent for analytics/cookies
+      var consent = __md_get("__consent");
+      var userExplicitlyRejected = getUserExplicitlyRejected();
+      
+      // Debug: Log consent status
+      console.log('Consent check:', consent);
+      console.log('User explicitly rejected:', userExplicitlyRejected);
+      
+      // Check multiple consent conditions for MkDocs Material
+      var hasConsent = false;
+      var consentMethod = '';
+      
+      if (consent) {
+        // Method 1: Check for analytics cookie consent specifically
+        if (consent.analytics === true) {
+          hasConsent = true;
+          consentMethod = 'analytics cookie';
+        }
+        // Method 2: Check if consent object has any accepted keys
+        else if (typeof consent === 'object' && Object.keys(consent).length > 0) {
+          // Check if any consent was actually given (not just an empty object or all false)
+          var hasAnyTrueValue = Object.values(consent).some(function(value) {
+            return value === true;
+          });
+          if (hasAnyTrueValue) {
+            hasConsent = true;
+            consentMethod = 'general consent object';
+          }
+        }
+        // Method 3: Check if consent is explicitly true
+        else if (consent === true) {
+          hasConsent = true;
+          consentMethod = 'boolean true';
+        }
+      }
+      
+      // Alternative method: Check localStorage directly for consent acceptance
+      if (!hasConsent) {
+        try {
+          var storedConsent = localStorage.getItem(location.pathname + '.__consent');
+          if (storedConsent && storedConsent !== 'null') {
+            var parsed = JSON.parse(storedConsent);
+            if (parsed && parsed.analytics === true) {
+              hasConsent = true;
+              consentMethod = 'localStorage analytics';
+              console.log('Analytics consent found in localStorage:', parsed);
+            }
+            // Also check if any values in stored consent are true
+            else if (parsed && typeof parsed === 'object') {
+              var hasAnyStoredTrueValue = Object.values(parsed).some(function(value) {
+                return value === true;
+              });
+              if (hasAnyStoredTrueValue) {
+                hasConsent = true;
+                consentMethod = 'localStorage general';
+                console.log('General consent found in localStorage:', parsed);
+              }
+            }
+          }
+        } catch (e) {
+          console.log('Could not check localStorage for consent:', e);
+        }
+      }
+      
+      // Fallback: Check if consent banner is hidden (user made a choice) - ONLY if not explicitly rejected
+      if (!hasConsent && !userExplicitlyRejected) {
+        var consentElement = document.querySelector('[data-md-component="consent"]');
+        if (consentElement && consentElement.hidden === true) {
+          // Banner is hidden and user didn't explicitly reject, assume consent was given
+          hasConsent = true;
+          consentMethod = 'hidden banner (accepted)';
+          console.log('Analytics consent inferred from hidden consent banner (user accepted)');
+        }
+      }
+      
+      if (hasConsent) {
+        // User has accepted - load analytics
+        analyticsLoaded = true;
+        // Clear rejection flag since user accepted
+        setUserExplicitlyRejected(false);
+        
+        // OPTION 1: Load Cloudflare Analytics (current - may be blocked)
+        var script = document.createElement('script');
+        script.defer = true;
+        script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        script.onload = function() {
+          console.log('✅ Analytics loaded successfully (tracking may still be blocked by browser)');
+        };
+        script.onerror = function() {
+          console.log('ℹ️  Analytics blocked by browser (this is normal with tracking protection)');
+        };
+        document.head.appendChild(script);
+        
+        // OPTION 2: Alternative - Load privacy-friendly analytics (uncomment to use instead)
+        /*
+        // Example: Simple page view tracking without cookies
+        try {
+          fetch('/api/pageview', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              page: window.location.pathname,
+              timestamp: Date.now()
+            })
+          }).catch(function() {
+            // Ignore errors for optional analytics
+          });
+          console.log('✅ Privacy-friendly analytics sent');
+        } catch (e) {
+          console.log('Analytics not available');
+        }
+        */
+        
+        console.log('✅ Analytics consent granted via:', consentMethod);
+      } else {
+        var reason = userExplicitlyRejected ? 'user explicitly rejected' : 'user consent rejected or pending';
+        console.log('❌ Analytics not loaded -', reason + '. Consent object:', consent);
+        
+        // Additional debug info
+        if (consent && typeof consent === 'object' && Object.keys(consent).length > 0) {
+          console.log('Consent object has keys but no true values:', Object.entries(consent));
+        }
+      }
+    } catch (error) {
+      console.log('Error checking consent:', error);
+    }
+  }
+  
+  // Try multiple times to ensure consent system is ready
+  function tryLoadAnalytics(attempts) {
+    attempts = attempts || 0;
+    
+    if (typeof __md_get === 'function') {
+      loadAnalyticsIfConsented();
+    } else if (attempts < 10) {
+      // Retry after 100ms, up to 10 times (1 second total)
+      setTimeout(function() {
+        tryLoadAnalytics(attempts + 1);
+      }, 100);
+    } else {
+      console.log('MkDocs consent system not found after 1 second');
+    }
+  }
+  
+  // Start trying to load analytics
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(tryLoadAnalytics, 250); // Small delay to ensure MkDocs is ready
+    });
+  } else {
+    setTimeout(tryLoadAnalytics, 250);
+  }
+  
+  // Also listen for storage changes in case consent is given after page load
+  window.addEventListener('storage', function(e) {
+    if (e.key && e.key.includes('__consent')) {
+      console.log('Consent changed via storage event, rechecking...');
+      setTimeout(loadAnalyticsIfConsented, 100);
+    }
+  });
+  
+  // Listen for consent form submission
+  document.addEventListener('click', function(e) {
+    if (e.target && (e.target.matches('[data-md-component="consent"] button') || 
+                    e.target.closest('[data-md-component="consent"] button'))) {
+      var buttonText = (e.target.textContent || e.target.innerText || '').trim().toLowerCase();
+      console.log('Consent button clicked:', buttonText);
+      
+      // Track explicit rejection/acceptance
+      if (buttonText.includes('reject')) {
+        setUserExplicitlyRejected(true);
+        console.log('User explicitly rejected analytics');
+      } else if (buttonText.includes('accept')) {
+        setUserExplicitlyRejected(false);
+        console.log('User clicked accept, will check for consent...');
+      }
+      
+      setTimeout(function() {
+        loadAnalyticsIfConsented();
+      }, 500); // Give time for consent to be stored
+    }
+  });
+})();
+</script>
+
+{% endblock %}
+
+{% block announce %}
+<!-- Add announcement here, including arbitrary HTML -->
+Portfolio Website currently in Development - Corolla
+<span class="twemoji">{% include ".icons/material/flower.svg" %}</span> 2025
+{% endblock %}
+
+<!-- These {#} are comments in jinja2 | uncomment to enable extra css and javascript using bootstrap -->
+{#
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+{% endblock %}
+#}

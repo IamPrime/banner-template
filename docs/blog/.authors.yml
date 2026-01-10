@@ -1,0 +1,33 @@
+# Template Instructions:
+# 1. Replace {{YOUR_HANDLE}} with your chosen author handle (e.g., "john_doe")
+# 2. Replace {{YOUR_NAME}} with your full name
+# 3. Replace {{YOUR_DESCRIPTION}} with a brief bio
+# 4. Replace {{YOUR_AVATAR_PATH}} with path to your avatar image
+# 5. Replace {{YOUR_URL}} with your website or portfolio URL
+# 6. Add additional authors if you have multiple contributors
+
+{{YOUR_HANDLE}}:  # This should match the 'authors' field in your blog post frontmatter
+  name: {{YOUR_NAME}}  # Your full display name
+  description: >
+    {{YOUR_DESCRIPTION}}
+    # Example: "Full-stack developer passionate about web technologies and user experience. 
+    # Currently working at TechCorp as a Senior Developer."
+  avatar: {{YOUR_AVATAR_PATH}}  # Path relative to docs/ (e.g., "assets/professional/avatar.jpg")
+  url: {{YOUR_URL}}  # Your website, portfolio, or social media URL
+
+# Example for multiple authors:
+# co_author:
+#   name: Jane Smith
+#   description: >
+#     UI/UX Designer with expertise in design systems and accessibility.
+#     Collaborates on design and frontend development projects.
+#   avatar: assets/professional/jane_avatar.jpg
+#   url: https://janesmith.design
+
+# guest_writer:
+#   name: Alex Johnson  
+#   description: >
+#     Guest contributor and industry expert in cloud architecture.
+#     CTO at CloudTech Solutions with 10+ years experience.
+#   avatar: assets/professional/alex_avatar.jpg
+#   url: https://alexjohnson.tech

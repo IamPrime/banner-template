@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Lint with flake8 (if requirements-dev.txt exists)
+      run: |
+        if [ -f requirements-dev.txt ]; then
+          pip install -r requirements-dev.txt
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        fi
+
+    - name: Test build
+      run: |
+        mkdocs build --verbose --strict
+
+    - name: Test serve
+      run: |
+        mkdocs serve --dev-addr=127.0.0.1:8000 &
+        sleep 5
+        curl -f http://127.0.0.1:8000/ || exit 1
+        pkill -f mkdocs

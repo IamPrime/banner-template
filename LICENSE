@@ -1,0 +1,98 @@
+# MkDocs Material Portfolio Template - License
+
+MIT License
+
+Copyright (c) 2024 [Your Name]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Licenses
+
+This template includes and builds upon the following open-source projects:
+
+### MkDocs
+- License: BSD-2-Clause
+- Website: https://www.mkdocs.org/
+- Repository: https://github.com/mkdocs/mkdocs
+
+### Material for MkDocs
+- License: MIT License
+- Website: https://squidfunk.github.io/mkdocs-material/
+- Repository: https://github.com/squidfunk/mkdocs-material
+
+### PyMdown Extensions
+- License: MIT License
+- Website: https://facelessuser.github.io/pymdown-extensions/
+- Repository: https://github.com/facelessuser/pymdown-extensions
+
+### Neoteroi MkDocs
+- License: MIT License
+- Repository: https://github.com/Neoteroi/mkdocs-plugins
+
+### FontAwesome
+- License: Font Awesome Free License
+- Website: https://fontawesome.com/
+- Used for icons throughout the template
+
+### Open-Meteo API
+- License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+- Website: https://open-meteo.com/
+- Used for weather data in the theme system
+
+---
+
+## Template Usage Terms
+
+This template is provided free of charge under the MIT License. You are free to:
+
+- Use this template for personal or commercial projects
+- Modify and customize the template to fit your needs
+- Distribute your modified versions
+- Include this template as part of larger projects
+
+### Attribution (Optional but Appreciated)
+
+While not required by the license, we appreciate attribution when you use this template:
+
+- A link back to the original template repository
+- Mention in your site's footer or about page
+- A star ⭐ on the GitHub repository
+
+### What You Need to Do
+
+1. **Replace the copyright notice** in this LICENSE file with your own information
+2. **Update the copyright year and name** in the mkdocs.yml file
+3. **Customize the template** with your own content and branding
+4. **Remove any placeholder content** that contains personal information from the original author
+
+### What You Don't Need to Do
+
+- You don't need to include this entire license file in your project
+- You don't need to credit the original template authors (though it's appreciated)
+- You don't need to open-source your customizations
+
+---
+
+## Disclaimer
+
+This template is provided "as is" without warranty of any kind. The authors are not responsible for any damages or issues that may arise from using this template. Please test thoroughly before deploying to production.
+
+For support and questions, please use the GitHub issues system in the template repository.

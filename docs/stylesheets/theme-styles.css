@@ -1,0 +1,374 @@
+/* Theme Manager Styles - Seasonal and Weather Themes */
+
+/* Preserve default Material Design colors and layout */
+/* These styles add visual effects without changing core theme colors */
+
+/* === PRESERVE HEADER VISIBILITY === */
+
+/* Ensure header elements remain visible in all seasonal themes */
+.md-header,
+.md-header__button,
+.md-header__title,
+[data-md-component="palette"] {
+    /* Preserve Material's default styling for proper light/dark mode support */
+    background: var(--md-primary-fg-color) !important;
+    color: var(--md-primary-bg-color) !important;
+}
+
+/* Ensure toggle buttons remain visible */
+.md-header__button svg,
+.md-header__button .md-icon {
+    color: var(--md-primary-bg-color) !important;
+    opacity: 1 !important;
+}
+
+/* === PRESERVE NAVIGATION STYLING === */
+
+/* Prevent seasonal theme effects from affecting navigation elements */
+.md-nav,
+.md-nav__item,
+.md-nav__link,
+.md-nav__title,
+.md-sidebar {
+    /* Reset any inherited filters or effects */
+    filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+/* Preserve Material's default navigation styling */
+.md-nav__item--active > .md-nav__link,
+.md-nav__link--active {
+    color: var(--md-accent-fg-color) !important;
+}
+
+/* === SEASONAL TOGGLE BUTTON === */
+
+.seasonal-toggle {
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.seasonal-toggle svg {
+    transition: transform 0.2s ease-in-out;
+}
+
+.seasonal-toggle:hover svg {
+    transform: scale(1.1);
+}
+
+/* === SEASONAL THEMES === */
+
+/* Spring Theme */
+.season-spring {
+    /* Subtle spring background overlay */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02), rgba(144, 238, 144, 0.03)),
+        var(--md-default-bg-color);
+}
+
+.season-spring .md-header {
+    backdrop-filter: blur(10px);
+}
+
+.season-spring .md-main__inner {
+    background: linear-gradient(135deg, rgba(144, 238, 144, 0.02) 0%, rgba(255, 182, 193, 0.02) 100%);
+    border-radius: 8px;
+}
+
+/* Summer Theme - Uses default theme colors */
+.season-summer .md-content {
+    /* Summer theme preserves default appearance */
+    position: relative;
+}
+
+/* Fall Theme */
+.season-fall {
+    background-image: 
+        linear-gradient(135deg, rgba(139, 69, 19, 0.03) 0%, rgba(255, 140, 0, 0.02) 50%, rgba(220, 20, 60, 0.02) 100%),
+        var(--md-default-bg-color);
+}
+
+.season-fall .md-main {
+    position: relative;
+    overflow: hidden;
+}
+
+.season-fall .md-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 69, 0, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.06) 0%, transparent 25%),
+        radial-gradient(circle at 40% 40%, rgba(139, 69, 19, 0.04) 0%, transparent 25%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.season-fall .md-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Winter Theme */
+.season-winter {
+    background-image: 
+        linear-gradient(rgba(240, 248, 255, 0.02), rgba(176, 196, 222, 0.03)),
+        var(--md-default-bg-color);
+}
+
+.season-winter .md-header {
+    backdrop-filter: blur(5px);
+    /* Removed problematic background override - preserve Material theme colors */
+}
+
+.season-winter .md-main {
+    position: relative;
+}
+
+.season-winter .md-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 10%),
+        radial-gradient(circle at 80% 80%, rgba(173, 216, 230, 0.05) 0%, transparent 15%),
+        radial-gradient(circle at 40% 40%, rgba(240, 248, 255, 0.03) 0%, transparent 20%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* === WEATHER THEMES === */
+
+/* Snow Weather */
+.weather-snow {
+    background-image: 
+        linear-gradient(rgba(240, 248, 255, 0.03), rgba(176, 196, 222, 0.04)),
+        var(--md-default-bg-color);
+}
+
+.weather-snow .md-content {
+    backdrop-filter: blur(1px);
+}
+
+/* Rain Weather */
+.weather-rain {
+    background-image: 
+        linear-gradient(rgba(70, 130, 180, 0.02), rgba(135, 206, 235, 0.02)),
+        var(--md-default-bg-color);
+}
+
+.weather-rain .md-header {
+    background: rgba(var(--md-primary-fg-color), 0.9);
+    backdrop-filter: blur(8px);
+}
+
+/* Fog Weather */
+.weather-fog .md-main {
+    opacity: 0.95;
+    backdrop-filter: blur(2px);
+}
+
+/* Clear Weather */
+.weather-clear.time-day {
+    background-image: 
+        radial-gradient(circle at top, rgba(255, 215, 0, 0.02), transparent 50%),
+        var(--md-default-bg-color);
+}
+
+.weather-clear.time-night {
+    background-image: 
+        radial-gradient(circle at top, rgba(25, 25, 112, 0.03), transparent 50%),
+        var(--md-default-bg-color);
+}
+
+/* Cloudy Weather */
+.weather-cloudy {
+    background-image: 
+        linear-gradient(rgba(128, 128, 128, 0.02), rgba(169, 169, 169, 0.02)),
+        var(--md-default-bg-color);
+}
+
+/* === TIME-BASED STYLING === */
+
+/* Day time subtle enhancement - only apply to content area, not navigation */
+.time-day .md-content {
+    filter: brightness(1.02) contrast(1.01);
+}
+
+/* Night time subtle enhancement - only apply to content area, not navigation */
+.time-night .md-content {
+    filter: brightness(0.98) contrast(1.02);
+}
+
+/* === ENHANCED ABOUT ME IMAGE OVERLAY === */
+
+/* Target the about me page specifically */
+.md-content img[src*="Prime"] {
+    position: relative;
+    z-index: 1;
+}
+
+/* Snow overlay for winter/snow weather */
+.season-winter .md-content img[src*="Prime"],
+.weather-snow .md-content img[src*="Prime"] {
+    position: relative;
+}
+
+.season-winter .md-content img[src*="Prime"]::after,
+.weather-snow .md-content img[src*="Prime"]::after {
+    content: '❄️ ❄️ ❄️';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 2;
+    animation: gentle-float 3s ease-in-out infinite;
+}
+
+/* Fall leaves overlay */
+.season-fall .md-content img[src*="Prime"]::after {
+    content: '🍂 🍁';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 2;
+    animation: gentle-sway 4s ease-in-out infinite;
+}
+
+/* Spring flowers overlay */
+.season-spring .md-content img[src*="Prime"]::after {
+    content: '🌸 🌺';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 2;
+    animation: gentle-bloom 5s ease-in-out infinite;
+}
+
+/* Summer sun overlay */
+.season-summer .md-content img[src*="Prime"]::after {
+    content: '☀️';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 2;
+    animation: gentle-glow 2s ease-in-out infinite alternate;
+}
+
+/* Rain overlay */
+.weather-rain .md-content img[src*="Prime"]::after {
+    content: '🌧️';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 2;
+    animation: gentle-drip 3s ease-in-out infinite;
+}
+
+/* === ANIMATIONS === */
+
+@keyframes gentle-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes gentle-sway {
+    0%, 100% { transform: rotate(0deg) translateX(0px); }
+    25% { transform: rotate(2deg) translateX(2px); }
+    75% { transform: rotate(-2deg) translateX(-2px); }
+}
+
+@keyframes gentle-bloom {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes gentle-glow {
+    0% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+    100% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+}
+
+@keyframes gentle-drip {
+    0%, 100% { transform: translateY(0px); opacity: 0.8; }
+    50% { transform: translateY(3px); opacity: 1; }
+}
+
+/* === ANIMATION TOGGLE BUTTON === */
+
+.animation-toggle {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.animation-toggle:hover {
+    opacity: 1;
+}
+
+.animation-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+
+@media (max-width: 768px) {
+    /* Reduce effects on mobile for performance */
+    .season-winter .md-main::before,
+    .season-fall .md-main::before,
+    .season-summer .md-content::before {
+        opacity: 0.5;
+    }
+    
+    /* Smaller overlay icons on mobile */
+    .md-content img[src*="Prime"]::after {
+        font-size: 16px !important;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* === DARK MODE ADAPTATIONS === */
+
+[data-md-color-scheme="slate"] .season-spring {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.1), rgba(144, 238, 144, 0.02)),
+        var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .season-summer {
+    background-image: 
+        radial-gradient(circle at top right, rgba(255, 215, 0, 0.02), transparent 50%),
+        var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .season-fall {
+    background-image: 
+        linear-gradient(135deg, rgba(139, 69, 19, 0.04) 0%, rgba(255, 140, 0, 0.03) 50%, rgba(220, 20, 60, 0.03) 100%),
+        var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .season-winter {
+    background-image: 
+        linear-gradient(rgba(240, 248, 255, 0.01), rgba(176, 196, 222, 0.02)),
+        var(--md-default-bg-color);
+}
