@@ -1,0 +1,14 @@
+{
+  "name": "Banner - Portfolio Template",
+  "short_name": "Banner",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#7530cf",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
