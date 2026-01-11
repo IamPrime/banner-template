@@ -1,9 +1,17 @@
 name: Deploy to GitHub Pages
 
+# TEMPLATE REPOSITORY - WORKFLOW DISABLED
+# This workflow is disabled for the template repository.
+# Users should enable this after configuring their portfolio with setup_template.py
+
+# To enable: uncomment the 'on:' section below after running setup_template.py
+# on:
+#   push:
+#     branches: [ main, master ]
+#   workflow_dispatch:
+
 on:
-  push:
-    branches: [ main, master ]
-  workflow_dispatch:
+  workflow_dispatch: # Manual trigger only
 
 permissions:
   contents: read
